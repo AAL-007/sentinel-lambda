@@ -1,3 +1,4 @@
-"_pycache_/" 
-"*.env" 
-"audit_logs/*.json" 
+venv/ 
+_pycache_/ 
+*.env 
+audit_logs/*.json 
