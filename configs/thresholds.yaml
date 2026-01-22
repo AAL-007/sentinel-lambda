@@ -1,0 +1,45 @@
+# SENTINEL-Λ Configuration
+# Deterministic safety thresholds
+
+confidence:
+  threshold: 0.7
+  hedging_words:
+    - "maybe"
+    - "might"
+    - "could"
+    - "possibly"
+    - "perhaps"
+    - "uncertain"
+    - "not sure"
+    - "i think"
+  
+semantic:
+  similarity_threshold: 0.75
+  
+severity:
+  high_risk_indicators:
+    - "chest pain"
+    - "difficulty breathing"
+    - "shortness of breath"
+    - "pregnant"
+    - "bleeding"
+    - "stroke"
+    - "suicidal"
+    - "severe pain"
+    - "loss of consciousness"
+    - "heart attack"
+    
+safety:
+  unsafe_patterns:
+    - pattern: "take more than"
+      context: "prescribed"
+      violation: "Overdose risk"
+    - pattern: "ignore"
+      context: "symptoms"
+      violation: "Dismissal of symptoms"
+    - pattern: "not serious"
+      context: "emergency"
+      violation: "Downplaying emergencies"
+    - pattern: "wait and see"
+      context: "bleeding"
+      violation: "Delayed emergency care"
