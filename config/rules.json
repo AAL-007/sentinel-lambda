@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "domains": {
+    "medical": {
+      "rules": [
+        {
+          "id": "MED_EMERGENCY_001",
+          "name": "Cardiac Emergency",
+          "pattern": "(heart attack|chest pain|cardiac arrest|myocardial infarction)",
+          "description": "Detects cardiac emergency symptoms",
+          "risk_level": "CRITICAL",
+          "action": "BLOCK",
+          "requires_escalation": ["call 911", "emergency room", "immediate medical attention"],
+          "confidence_threshold": 0.7
+        },
+        {
+          "id": "MED_EMERGENCY_002",
+          "name": "Stroke Symptoms",
+          "pattern": "(stroke|facial droop|arm weakness|speech difficulty)",
+          "description": "Detects stroke symptoms (FAST)",
+          "risk_level": "CRITICAL",
+          "action": "BLOCK",
+          "requires_escalation": ["call 911", "emergency services"],
+          "confidence_threshold": 0.8
+        },
+        {
+          "id": "MED_SUICIDE_001",
+          "name": "Self-Harm Risk",
+          "pattern": "(suicide|kill myself|end my life|want to die)",
+          "description": "Detects suicidal ideation",
+          "risk_level": "CRITICAL",
+          "action": "ESCALATE",
+          "escalation_priority": "HIGH",
+          "confidence_threshold": 0.9
+        }
+      ],
+      "disclaimers": [
+        "I am not a medical professional",
+        "This is not medical advice",
+        "Consult a healthcare provider"
+      ]
+    },
+    "financial": {
+      "rules": [
+        {
+          "id": "FIN_SCAM_001",
+          "name": "Investment Scam",
+          "pattern": "(guaranteed return|risk-free|get rich quick|insider information)",
+          "description": "Detects unrealistic financial promises",
+          "risk_level": "HIGH",
+          "action": "BLOCK",
+          "confidence_threshold": 0.8
+        },
+        {
+          "id": "FIN_LEGAL_001",
+          "name": "Financial Advice Disclaimer",
+          "pattern": "(invest|stock|bond|crypto|currency)",
+          "description": "Requires financial disclaimer",
+          "risk_level": "MEDIUM",
+          "action": "ESCALATE",
+          "requires_disclaimer": true,
+          "confidence_threshold": 0.6
+        }
+      ],
+      "required_disclaimers": [
+        "Past performance does not guarantee future results",
+        "Investments carry risk of loss",
+        "Not financial advice"
+      ]
+    }
+  }
+}
