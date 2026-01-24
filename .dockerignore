@@ -1,0 +1,20 @@
+# Git metadata (Huge context savings)
+.git/
+.gitignore
+
+# Python / Environment (Prevents leaking secrets/binaries)
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.env
+
+# Tests / Local scripts (Keep production image minimal)
+.pytest_cache/
+*.log
+test_cases.py
+run.py
+
+# Documentation
+README.md
